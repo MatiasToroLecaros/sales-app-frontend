@@ -1,0 +1,14 @@
+FROM node:20-alpine
+
+WORKDIR /app
+
+# Instalar dependencias
+COPY package*.json ./
+RUN npm install
+
+# No copiamos el código fuente, usaremos volúmenes en desarrollo
+
+EXPOSE 5173
+
+# Comando para iniciar en modo desarrollo
+CMD ["npm", "run", "dev", "--", "--host", "0.0.0.0"]
