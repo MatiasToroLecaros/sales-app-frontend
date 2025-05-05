@@ -5,6 +5,8 @@ WORKDIR /app
 # Instalar dependencias
 COPY package*.json ./
 RUN npm install
+RUN npm install @tailwindcss/vite
+RUN npm install tailwindcss @tailwindcss/postcss postcss
 
 # No copiamos el código fuente, usaremos volúmenes en desarrollo
 
