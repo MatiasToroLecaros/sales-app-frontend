@@ -5,6 +5,10 @@ import { DashboardPage } from './pages/DashboardPage';
 import { MainLayout } from './components/layout/MainLayout';
 import { NotFoundPage } from './pages/NotFoundPage';
 import { ProtectedRoute } from './components/common/ProtectedRoute';
+import { ProductsPage } from './pages/ProductsPage';
+import { SalesPage } from './pages/SalesPage';
+import { ReportsPage } from './pages/ReportsPage';
+import { ProfilePage } from './pages/ProfilePage';
 
 export const router = createBrowserRouter([
   {
@@ -30,22 +34,22 @@ export const router = createBrowserRouter([
         path: '/dashboard',
         element: <DashboardPage />,
       },
-      // {
-      //   path: '/products',
-      //   element: <ProductsPage />,
-      // },
-      // {
-      //   path: '/sales',
-      //   element: <SalesPage />,
-      // },
-      // {
-      //   path: '/reports',
-      //   element: <ReportsPage />,
-      // },
-      // {
-      //   path: '/profile',
-      //   element: <ProfilePage />,
-      // },
+      {
+        path: '/products',
+        element: <ProductsPage />,
+      },
+      {
+        path: '/sales',
+        element: <SalesPage />,
+      },
+      {
+        path: '/reports',
+        element: <ReportsPage />,
+      },
+      {
+        path: '/profile',
+        element: <ProfilePage />,
+      },
     ],
   },
   {
