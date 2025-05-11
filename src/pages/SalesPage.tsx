@@ -234,13 +234,14 @@ export const SalesPage: React.FC = () => {
 
       {/* Modal para crear/editar venta */}
       {isModalOpen && (
-        <SaleFormModal
-          sale={currentSale}
-          products={products}
-          users={users}
-          onClose={() => setIsModalOpen(false)}
-          onSave={handleSaveSale}
-        />
+       <SaleFormModal
+       sale={currentSale}
+       isOpen={isModalOpen} // Nueva prop
+       products={products}
+       users={users}
+       onClose={() => setIsModalOpen(false)}
+       onSave={handleSaveSale}
+     />
       )}
 
       {/* Modal de confirmación para eliminar */}

@@ -176,10 +176,11 @@ export const ProductsPage: React.FC = () => {
       {/* Modal para crear/editar producto */}
       {isModalOpen && (
         <ProductFormModal
-          product={currentProduct}
-          onClose={() => setIsModalOpen(false)}
-          onSave={handleSaveProduct}
-        />
+        product={currentProduct}
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+        onSave={handleSaveProduct}
+      />
       )}
 
       {/* Modal de confirmación para eliminar */}

@@ -1,3 +1,4 @@
+// src/components/common/Button.tsx (versión mejorada)
 import React from 'react';
 import { clsx } from 'clsx';
 
@@ -12,6 +13,7 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   children: React.ReactNode;
 }
 
+// Button.tsx (componente mejorado)
 export const Button: React.FC<ButtonProps> = ({
   variant = 'primary',
   size = 'md',
@@ -22,23 +24,24 @@ export const Button: React.FC<ButtonProps> = ({
   disabled,
   ...props
 }) => {
-  const baseStyles = 'inline-flex items-center justify-center rounded-md font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2';
+  const baseStyles = 'inline-flex items-center justify-center rounded-lg font-medium transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-secondary-900';
   
   const variantStyles = {
-    primary: 'bg-primary-600 text-white hover:bg-primary-700 focus:ring-primary-500',
-    secondary: 'bg-secondary-200 text-secondary-900 hover:bg-secondary-300 focus:ring-secondary-200',
-    outline: 'border border-secondary-300 bg-transparent hover:bg-secondary-100 focus:ring-secondary-200',
-    danger: 'bg-red-600 text-white hover:bg-red-700 focus:ring-red-500',
-    success: 'bg-green-600 text-white hover:bg-green-700 focus:ring-green-500',
+    primary: 'bg-primary-600 text-white hover:bg-primary-700 shadow-md hover:shadow-lg focus:ring-primary-500',
+    secondary: 'bg-secondary-700 text-white hover:bg-secondary-600 shadow-md hover:shadow-lg focus:ring-secondary-400',
+    outline: 'border-2 border-secondary-600 bg-transparent text-secondary-300 hover:bg-secondary-700 hover:text-white focus:ring-secondary-500',
+    danger: 'bg-red-600 text-white hover:bg-red-700 shadow-md hover:shadow-lg focus:ring-red-500',
+    success: 'bg-green-600 text-white hover:bg-green-700 shadow-md hover:shadow-lg focus:ring-green-500',
   };
   
   const sizeStyles = {
-    sm: 'text-sm px-3 py-1.5',
-    md: 'text-sm px-4 py-2',
-    lg: 'text-base px-6 py-3',
+    sm: 'text-xs px-3 py-1.5 rounded-md',
+    md: 'text-sm px-4 py-2 rounded-md',
+    lg: 'text-base px-6 py-3 rounded-md',
   };
   
-  const loadingStyles = isLoading ? 'opacity-70 cursor-not-allowed' : '';
+  const loadingStyles = isLoading ? 'opacity-80 cursor-not-allowed' : '';
+  const disabledStyles = disabled && !isLoading ? 'opacity-60 cursor-not-allowed' : '';
   const widthStyles = fullWidth ? 'w-full' : '';
   
   return (
@@ -48,7 +51,9 @@ export const Button: React.FC<ButtonProps> = ({
         variantStyles[variant],
         sizeStyles[size],
         loadingStyles,
+        disabledStyles,
         widthStyles,
+        'transform hover:scale-105',
         className
       )}
       disabled={disabled || isLoading}
